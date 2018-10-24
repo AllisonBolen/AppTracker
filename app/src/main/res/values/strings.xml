@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Filler</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgot_pass">Forgot My Password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logo">Logo</string>
+    <string name="title_activity_signup_activity">Signup_activity</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
