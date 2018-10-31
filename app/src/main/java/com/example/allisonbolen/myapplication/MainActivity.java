@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button signUp = findViewById(R.id.register_button);
+        Button login = findViewById(R.id.login_button);
 
 
 
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         signUp.setOnClickListener(v -> {
             Intent intentToSignUp = new Intent(this, Signup_activity.class);
             startActivity(intentToSignUp);
+        });
+        login.setOnClickListener(v-> {
+            Intent intentToLogin = new Intent(this, homeActivity.class);
+            startActivity(intentToLogin);
         });
 
 

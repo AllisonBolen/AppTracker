@@ -8,4 +8,5 @@
     <string name="logo">Logo</string>
     <string name="title_activity_signup_activity">Signup_activity</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="title_activity_home">homeActivity</string>
 </resources>
