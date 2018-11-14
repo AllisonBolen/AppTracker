@@ -13,20 +13,19 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class homeActivity extends AppCompatActivity {
+import com.example.allisonbolen.myapplication.dummy.DummyContent;
+
+public class HomeActivity extends AppCompatActivity
+        implements ApplicationFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        RecyclerView home_activity_layout = findViewById(R.id.home_activity_layout);
-        RecyclerView.Adapter mAdapter;
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
 
-
-        home_activity_layout.setLayoutManager(mLayoutManager);
 
         FloatingActionButton fab =  findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,14 +33,15 @@ public class homeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                CardView tr1 = new CardView(getApplicationContext());
-                tr1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.MATCH_PARENT));
-                TextView textview = new TextView(getApplicationContext());
-                textview.setText("Hello World");
-                tr1.addView(textview);
-                home_activity_layout.addView(tr1, 0);
+
             }
         });
     }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+        System.out.println("Interact!");
+    }
+
 
 }

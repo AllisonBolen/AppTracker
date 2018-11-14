@@ -21,7 +21,7 @@
             android:label="@string/title_activity_signup_activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".homeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
