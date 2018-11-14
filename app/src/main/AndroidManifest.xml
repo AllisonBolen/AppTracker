@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Signup_activity"
+            android:label="@string/title_activity_signup_activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".homeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "400439477602",
+    "firebase_url": "https://tracker-b308e.firebaseio.com",
+    "project_id": "tracker-b308e",
+    "storage_bucket": "tracker-b308e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400439477602:android:310f4ef3501bbc79",
+        "android_client_info": {
+          "package_name": "com.example.allisonbolen.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400439477602-nf5s2qqnivs0tfbeb5uejbjb5q4t7h40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDhuWH3vBGm4Cp0pVK8xKnJw48aY6IMYQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
