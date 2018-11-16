@@ -10,4 +10,10 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="title_activity_home">homeActivity</string>
     <string name="temp">Temp</string>
+    <string name="title_activity_new_application_object">new_application_object</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_description">Company Description</string>
+    <string name="job_title">Job Title</string>
+    <string name="job_description">Job Description</string>
+    <string name="contact_information">Contact Information</string>
 </resources>
