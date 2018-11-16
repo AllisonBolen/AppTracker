@@ -4,11 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
 import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
-
+import org.joda.time.format.DateTimeFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -37,7 +38,11 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.CmpyName.setText(mValues.get(position).getCompanyName());
-        holder.DateLastAccessed.setText(mValues.get(position).getAppDate().toString());
+        holder.DateLastAccessed.setText(mValues.get(position).getAppDate().toString(DateTimeFormat.fullDate()));
+        holder.JobTitle.setText(mValues.get(position).getJobTitle());
+        holder.JobDescp.setText(mValues.get(position).getJobDesc());
+
+//        holder.CompanyImage.setImageDrawable();
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +63,8 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView CmpyName;
-        public final TextView DateLastAccessed;
+        public final TextView CmpyName, DateLastAccessed, JobDescp, JobTitle;
+//        public final ImageView CompanyImage;
         public Application_Information_Object mItem;
 
         public ViewHolder(View view) {
@@ -67,6 +72,9 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
             mView = view;
             CmpyName = (TextView) view.findViewById(R.id.Company_Name);
             DateLastAccessed = (TextView) view.findViewById(R.id.DateLastOpened);
+            JobDescp = (TextView) view.findViewById(R.id.jobDescription);
+            JobTitle = (TextView) view.findViewById(R.id.JobTitle);
+//            CompanyImage = (ImageView) view.findViewById(R.id.imageView2);
         }
 
         @Override
