@@ -23,15 +23,12 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
-
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
+    static{
+        addItem(new DummyItem("1", "Here", "I wanna go"));
+        addItem(new DummyItem("2", "beer", "I wanna go"));
+        addItem(new DummyItem("3", "deer", "I wanna go"));
     }
-
+    
     private static void addItem(DummyItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
