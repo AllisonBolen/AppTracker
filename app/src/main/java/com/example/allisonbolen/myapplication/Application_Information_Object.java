@@ -1,16 +1,17 @@
 package com.example.allisonbolen.myapplication;
 
 import java.util.Date;
+import org.joda.time.DateTime;
 
 public class Application_Information_Object {
 
     private String companyName, companyDesc, jobTitle, jobDesc, contactInfo;
-    private Date lastClick, appDate;
+    private DateTime lastClick, appDate;
 
 
     public Application_Information_Object(String companyName, String companyDesc,
-                                          String jobTitle, Date lastClick, String jobDesc,
-                                          Date appDate, String contactInfo){
+                                          String jobTitle, DateTime lastClick, String jobDesc,
+                                          DateTime appDate, String contactInfo){
         this.companyName = companyName;
         this.companyDesc = companyDesc;
         this.jobTitle = jobTitle;
@@ -60,19 +61,19 @@ public class Application_Information_Object {
         this.contactInfo = contactInfo;
     }
 
-    public Date getLastClick() {
+    public DateTime getLastClick() {
         return lastClick;
     }
 
-    public void setLastClick(Date lastClick) {
+    public void setLastClick(DateTime lastClick) {
         this.lastClick = lastClick;
     }
 
-    public Date getAppDate() {
+    public DateTime getAppDate() {
         return appDate;
     }
 
-    public void setAppDate(Date appDate) {
+    public void setAppDate(DateTime appDate) {
         this.appDate = appDate;
     }
 }

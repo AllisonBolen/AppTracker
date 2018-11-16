@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
-import com.example.allisonbolen.myapplication.dummy.DummyContent.DummyItem;
+import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
 
 /**
  * A fragment representing a list of Items.
@@ -102,6 +102,6 @@ public class ApplicationFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Application_Information_Object item);
     }
 }
