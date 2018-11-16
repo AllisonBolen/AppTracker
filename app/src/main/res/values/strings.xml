@@ -16,4 +16,5 @@
     <string name="job_title">Job Title</string>
     <string name="job_description">Job Description</string>
     <string name="contact_information">Contact Information</string>
+    <string name="date_last_accessed">Date last Opened</string>
 </resources>

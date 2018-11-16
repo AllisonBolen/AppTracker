@@ -36,8 +36,8 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getAppDate().toString());
-        holder.mContentView.setText(mValues.get(position).getCompanyName());
+        holder.CmpyName.setText(mValues.get(position).getCompanyName());
+        holder.DateLastAccessed.setText(mValues.get(position).getAppDate().toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,20 +58,20 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final TextView CmpyName;
+        public final TextView DateLastAccessed;
         public Application_Information_Object mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            CmpyName = (TextView) view.findViewById(R.id.Company_Name);
+            DateLastAccessed = (TextView) view.findViewById(R.id.DateLastOpened);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + DateLastAccessed.getText() + "'";
         }
     }
 }
