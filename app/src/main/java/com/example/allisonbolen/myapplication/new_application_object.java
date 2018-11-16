@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.allisonbolen.myapplication.dummy.DummyContent.*;
+import com.example.allisonbolen.myapplication.dummy.DummyContent;
+
+import org.joda.time.DateTime;
+
 public class new_application_object extends AppCompatActivity {
 
     @Override
@@ -17,13 +22,14 @@ public class new_application_object extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(-> {
+        fab.setOnClickListener(v -> {
+            DateTime now = new DateTime();
+            Application_Information_Object tempItem = new Application_Information_Object(findViewById(R.id.cmpyName).toString(), findViewById(R.id.cmpyDesc).toString(),
+                    findViewById(R.id.jbTitle).toString(), now, findViewById(R.id.jbDesc).toString(),
+                    now, findViewById(R.id.contactInfo).toString(), 1);
+            DummyContent.addItem(tempItem);
+            finish();
 
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
         });
     }
 

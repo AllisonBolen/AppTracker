@@ -32,12 +32,6 @@ public class HomeActivity extends AppCompatActivity
        fab.setOnClickListener(v->{
            Intent newAppObject = new Intent(this, new_application_object.class);
            startActivity(newAppObject);
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//
-//            }
         });
     }
 

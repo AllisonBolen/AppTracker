@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.joda.time.DateTime;
 import java.util.Map;
-import com.example.allisonbolen.myapplication.Application_Information_Object;
+
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
@@ -25,7 +25,7 @@ public class DummyContent {
     public static final Map<DateTime, Application_Information_Object> ITEM_MAP = new HashMap<DateTime, Application_Information_Object>();
 
 
-    private static void addItem(Application_Information_Object item) {
+    public static void addItem(Application_Information_Object item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getAppDate(), item);
     }
