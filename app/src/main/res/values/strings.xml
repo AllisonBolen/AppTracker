@@ -18,4 +18,5 @@
     <string name="contact_information">Contact Information</string>
     <string name="date_last_accessed">Date last Opened</string>
     <string name="tile_image_description">A picture for the user to chose to represent the tile</string>
+    <string name="title_activity_info_veiw_page">InfoVeiwPage</string>
 </resources>

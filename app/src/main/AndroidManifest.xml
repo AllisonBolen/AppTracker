@@ -27,6 +27,10 @@
         <activity
             android:name=".new_application_object"
             android:label="@string/title_activity_new_application_object"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InfoVeiwPage"
+            android:label="@string/title_activity_info_veiw_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

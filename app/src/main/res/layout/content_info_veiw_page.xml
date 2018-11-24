@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".new_application_object"
-    tools:showIn="@layout/activity_new_application_object">
+    tools:context=".InfoVeiwPage"
+    tools:showIn="@layout/activity_info_veiw_page">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,150 +23,107 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/text_cmpName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/company_name"
-            android:textAlignment="textStart"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/cmpyName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/text_contact"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="@string/contact_information"
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/contactInfo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jbDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/jbDesc"
+            tools:layout_editor_absoluteX="8dp" />
 
         <TextView
             android:id="@+id/text_cmpyDesc"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/company_description"
+            android:text="@string/company_name"
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/cmpyDesc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cmpyName" />
+            app:layout_constraintTop_toBottomOf="@+id/cmpyName"
+            tools:layout_editor_absoluteX="8dp" />
 
         <EditText
             android:id="@+id/jbTitle"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/job_title"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/text_jbDesc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_jbTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/text_jbTitle"
+            tools:layout_editor_absoluteX="8dp" />
 
         <EditText
             android:id="@+id/cmpyDesc"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/company_description"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/text_jbTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_cmpyDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/text_cmpyDesc"
+            tools:layout_editor_absoluteX="8dp" />
 
         <EditText
             android:id="@+id/contactInfo"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/contact_information"
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_contact" />
+            app:layout_constraintTop_toBottomOf="@+id/text_contact"
+            tools:layout_editor_absoluteX="8dp" />
 
         <TextView
             android:id="@+id/text_jbTitle"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="@string/job_title"
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/jbTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cmpyDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/cmpyDesc"
+            tools:layout_editor_absoluteX="8dp" />
 
         <TextView
             android:id="@+id/text_jbDesc"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="@string/job_description"
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/jbDesc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jbTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/jbTitle"
+            tools:layout_editor_absoluteX="8dp" />
 
         <EditText
             android:id="@+id/cmpyName"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/company_name"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/text_cmpyDesc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_cmpName" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="8dp" />
 
         <EditText
             android:id="@+id/jbDesc"
-            android:layout_width="0dp"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/job_description"
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/text_contact"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_jbDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/text_jbDesc"
+            tools:layout_editor_absoluteX="8dp" />
     </android.support.constraint.ConstraintLayout>
-
 </android.support.constraint.ConstraintLayout>
