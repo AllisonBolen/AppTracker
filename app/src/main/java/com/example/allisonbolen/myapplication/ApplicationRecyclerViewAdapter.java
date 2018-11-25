@@ -49,6 +49,11 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
         holder.cardView.setOnClickListener(v -> {
             Intent infoPage = new Intent(v.getContext(), InfoVeiwPage.class);
+
+            //ADD DATA TO OUR INTENT
+            infoPage.putExtra("App",mValues.get(position));
+
+            //START DETAIL ACTIVITY
             v.getContext().startActivity(infoPage);
         });
     }
