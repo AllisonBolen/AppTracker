@@ -15,6 +15,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,7 +34,7 @@ public class HomeActivity extends AppCompatActivity
         database = FirebaseDatabase.getInstance().getReference();
     }
 
-    public static List<DummyContent.Application_Information_Object> allHistory;
+    public static List<DummyContent.Application_Information_Object> allApps;
     public static final int NewItem = 1;
 
     @Override
@@ -41,8 +44,7 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        allHistory = new ArrayList<DummyContent.Application_Information_Object>();
-
+        allApps = new ArrayList<DummyContent.Application_Information_Object>();
 
 
         FloatingActionButton fab =  findViewById(R.id.fab);
@@ -57,13 +59,51 @@ public class HomeActivity extends AppCompatActivity
         if(resultCode == NewItem){
             DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
             DummyContent.addItem(temp);
+            database.push().setValue(temp);
         }
     }
+
 
     @Override
     public void onListFragmentInteraction(DummyContent.Application_Information_Object item) {
         System.out.println("Interact!");
     }
 
-
+//    private ChildEventListener chEvListener = new ChildEventListener() {
+//        @Override
+//        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//            DummyContent.Application_Information_Object entry =
+//                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+//            entry._key = dataSnapshot.getKey();
+//            allApps.add(entry);
+//        }
+//
+//        @Override
+//        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//        }
+//
+//        @Override
+//        public void onChildRemoved(DataSnapshot dataSnapshot) {
+//            DummyContent.Application_Information_Object entry =
+//                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+//            entry._key = dataSnapshot.getKey();
+//            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
+//            for (DummyContent.Application_Information_Object t : allApps) {
+//                if (!t._key.equals(dataSnapshot.getKey())) {
+//                    newApp.add(t);
+//                }
+//            }
+//            allApps = newApp;
+//        }
+//
+//        @Override
+//        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//        }
+//
+//        @Override
+//        public void onCancelled(DatabaseError databaseError) {
+//
+//        }
+//    };
 }

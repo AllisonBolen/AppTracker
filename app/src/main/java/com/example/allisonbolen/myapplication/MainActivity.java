@@ -20,22 +20,25 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth authUser;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = authUser.getCurrentUser();
-        Intent home = new Intent(this, HomeActivity.class);
-        startActivity(home);
-        // updateUI(currentUser);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = authUser.getCurrentUser();
+//        if(currentUser != null ) {
+//            Intent home = new Intent(this, HomeActivity.class);
+//            startActivity(home);
+//        }
+//        // updateUI(currentUser);
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button signUp = findViewById(R.id.register_button);
         Button login = findViewById(R.id.login_button);
-        EditText username = findViewById(R.id.email_editText);
+        EditText username = findViewById(R.id.username_editText);
         EditText password = findViewById(R.id.password_editText);
         // ...
         // Initialize Firebase Auth
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("Failed to Auth", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(MainActivity.this, "Authentication failed.",
+                                Toast.makeText(MainActivity.this, "Authentication failed On Login.",
                                         Toast.LENGTH_SHORT).show();
                             }
                             // ...
@@ -71,10 +74,6 @@ public class MainActivity extends AppCompatActivity {
                     });
 
         });
-
-
-
-
 
     }
 

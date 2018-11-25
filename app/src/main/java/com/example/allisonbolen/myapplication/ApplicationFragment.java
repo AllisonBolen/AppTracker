@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
 import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
 
+import java.util.List;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -26,12 +28,15 @@ public class ApplicationFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    //List<Application_Information_Object> allApps;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public ApplicationFragment() {
+        //allApps = HomeActivity.allApps;
+
     }
 
     // TODO: Customize parameter initialization
@@ -67,6 +72,7 @@ public class ApplicationFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+            //recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(allApps, mListener));
             recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;

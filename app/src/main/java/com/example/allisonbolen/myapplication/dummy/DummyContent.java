@@ -49,7 +49,9 @@ public class DummyContent implements java.io.Serializable{
     public static class Application_Information_Object implements java.io.Serializable{
 
         private String companyName, companyDesc, jobTitle, jobDesc, contactInfo;
+        public String _key;
         private DateTime lastClick, appDate;
+
         private int position;
 
         public Application_Information_Object(String companyName, String companyDesc,
