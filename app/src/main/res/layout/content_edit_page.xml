@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".InfoVeiwPage"
-    tools:showIn="@layout/activity_info_veiw_page">
+    tools:context=".edit_page"
+    tools:showIn="@layout/activity_edit_page">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -144,9 +144,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="14dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/company_name"

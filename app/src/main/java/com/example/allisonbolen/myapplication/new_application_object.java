@@ -1,5 +1,6 @@
 package com.example.allisonbolen.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,8 @@ public class new_application_object extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(v -> {
             DateTime now = new DateTime();
@@ -35,8 +38,15 @@ public class new_application_object extends AppCompatActivity {
                     cmpyName.getText().toString(), cmpyDesc.getText().toString(),
                     jbTitle.getText().toString(), now, jbDesc.getText().toString(),
                     now, contactInfo.getText().toString(), 1);
-            DummyContent.addItem(tempItem);
+
+            Intent intent = new Intent(new_application_object.this, MainActivity.class);
+            intent.putExtra("App", tempItem );
+            setResult(HomeActivity.NewItem, intent);
             finish();
+            // DummyContent.addItem(tempItem);
+            // I feel like this is wrong and it should use an intent to pass data
+
+            // finish();
 
         });
     }

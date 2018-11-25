@@ -31,6 +31,10 @@
         <activity
             android:name=".InfoVeiwPage"
             android:label="@string/title_activity_info_veiw_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".edit_page"
+            android:label="@string/title_activity_edit_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

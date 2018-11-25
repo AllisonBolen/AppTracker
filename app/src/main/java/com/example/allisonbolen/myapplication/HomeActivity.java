@@ -15,9 +15,24 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
         implements ApplicationFragment.OnListFragmentInteractionListener {
+    private DatabaseReference database;
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        database = FirebaseDatabase.getInstance().getReference();
+    }
+
+    public static List<DummyContent.Application_Information_Object> allHistory;
+    public static final int NewItem = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +41,23 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        allHistory = new ArrayList<DummyContent.Application_Information_Object>();
+
 
 
         FloatingActionButton fab =  findViewById(R.id.fab);
        fab.setOnClickListener(v->{
            Intent newAppObject = new Intent(this, new_application_object.class);
-           startActivity(newAppObject);
+           startActivityForResult(newAppObject, NewItem);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode == NewItem){
+            DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
+            DummyContent.addItem(temp);
+        }
     }
 
     @Override

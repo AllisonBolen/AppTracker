@@ -5,14 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import org.joda.time.DateTime;
 import java.util.Map;
-
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class DummyContent implements java.io.Serializable{
 
     /**
      * An array of sample (dummy) items.
@@ -47,7 +46,7 @@ public class DummyContent {
      * A dummy item representing a piece of content.
      */
 
-    public static class Application_Information_Object {
+    public static class Application_Information_Object implements java.io.Serializable{
 
         private String companyName, companyDesc, jobTitle, jobDesc, contactInfo;
         private DateTime lastClick, appDate;
