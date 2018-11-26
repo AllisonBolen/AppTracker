@@ -77,7 +77,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_settings) {
-            Intent intent = new Intent(HomeActivity.this, Settings_Activity.class);
+            Intent intent = new Intent(this, Settings_Activity.class);
             startActivity(intent);
             return true;
         }
