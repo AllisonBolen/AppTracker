@@ -40,12 +40,11 @@ public class Signup_activity extends AppCompatActivity {
 
                 authUser.createUserWithEmailAndPassword(username.getText().toString(), password.getText().toString())
                         .addOnCompleteListener(Signup_activity.this, new OnCompleteListener<AuthResult>() {
-
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    //Log.d(TAG, "createUserWithEmail:success");
+                                    Log.d("GOOD", "createUserWithEmail:success");
                                     FirebaseUser user = authUser.getCurrentUser();
                                     //updateUI(user);
                                     Snackbar.make(view, "All Signed Up!", Snackbar.LENGTH_LONG)

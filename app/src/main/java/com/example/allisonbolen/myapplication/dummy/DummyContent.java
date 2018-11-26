@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+
 import java.util.Map;
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -18,20 +20,11 @@ public class DummyContent implements java.io.Serializable{
      */
     public static final List<Application_Information_Object> ITEMS = new ArrayList<Application_Information_Object>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
-    public static final Map<DateTime, Application_Information_Object> ITEM_MAP = new HashMap<DateTime, Application_Information_Object>();
-
 
     public static void addItem(Application_Information_Object item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.getAppDate(), item);
     }
 
-    private static Application_Information_Object createDummyItem(int position) {
-        return new Application_Information_Object("Nike", "SHOE PLACE", "ENGINEER", DateTime.now(), "Do the android", DateTime.now(), "Mr Rogers", position);
-    }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
@@ -48,15 +41,25 @@ public class DummyContent implements java.io.Serializable{
 
     public static class Application_Information_Object implements java.io.Serializable{
 
-        private String companyName, companyDesc, jobTitle, jobDesc, contactInfo;
+        private String companyName, companyDesc, jobTitle, jobDesc, contactInfo, lastClick, appDate;;
         public String _key;
-        private DateTime lastClick, appDate;
+        //private DateTime lastClick, appDate;
 
         private int position;
+        public Application_Information_Object(){
+            this.companyName = "";
+            this.companyDesc = "";
+            this.jobTitle = "";
+            this.jobDesc = "";
+            this.contactInfo = "";
+            this.lastClick = new DateTime().toString(DateTimeFormat.fullDate());
+            this.appDate = new DateTime().toString(DateTimeFormat.fullDate());
+            this.position = 0;
+        };
 
         public Application_Information_Object(String companyName, String companyDesc,
-                                              String jobTitle, DateTime lastClick, String jobDesc,
-                                              DateTime appDate, String contactInfo, int position){
+                                              String jobTitle, String lastClick, String jobDesc,
+                                              String appDate, String contactInfo, int position){
             this.companyName = companyName;
             this.companyDesc = companyDesc;
             this.jobTitle = jobTitle;
@@ -107,19 +110,19 @@ public class DummyContent implements java.io.Serializable{
             this.contactInfo = contactInfo;
         }
 
-        public DateTime getLastClick() {
+        public String getLastClick() {
             return lastClick;
         }
 
-        public void setLastClick(DateTime lastClick) {
+        public void setLastClick(String lastClick) {
             this.lastClick = lastClick;
         }
 
-        public DateTime getAppDate() {
+        public String getAppDate() {
             return appDate;
         }
 
-        public void setAppDate(DateTime appDate) {
+        public void setAppDate(String appDate) {
             this.appDate = appDate;
         }
     }

@@ -33,7 +33,11 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onResume(){
         super.onResume();
-        database = FirebaseDatabase.getInstance().getReference();
+        super.onResume();
+        allApps.clear();
+        database= FirebaseDatabase.getInstance().getReference("Cards");
+        database.addChildEventListener (chEvListener);
+
     }
 
     public static List<DummyContent.Application_Information_Object> allApps;
@@ -85,41 +89,41 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
-//    private ChildEventListener chEvListener = new ChildEventListener() {
-//        @Override
-//        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//            DummyContent.Application_Information_Object entry =
-//                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-//            entry._key = dataSnapshot.getKey();
-//            allApps.add(entry);
-//        }
-//
-//        @Override
-//        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//        }
-//
-//        @Override
-//        public void onChildRemoved(DataSnapshot dataSnapshot) {
-//            DummyContent.Application_Information_Object entry =
-//                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-//            entry._key = dataSnapshot.getKey();
-//            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
-//            for (DummyContent.Application_Information_Object t : allApps) {
-//                if (!t._key.equals(dataSnapshot.getKey())) {
-//                    newApp.add(t);
-//                }
-//            }
-//            allApps = newApp;
-//        }
-//
-//        @Override
-//        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//        }
-//
-//        @Override
-//        public void onCancelled(DatabaseError databaseError) {
-//
-//        }
-//    };
+    private ChildEventListener chEvListener = new ChildEventListener() {
+        @Override
+        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            DummyContent.Application_Information_Object entry =
+                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+            entry._key = dataSnapshot.getKey();
+            allApps.add(entry);
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+        }
+
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+            DummyContent.Application_Information_Object entry =
+                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+            entry._key = dataSnapshot.getKey();
+            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
+            for (DummyContent.Application_Information_Object t : allApps) {
+                if (!t._key.equals(dataSnapshot.getKey())) {
+                    newApp.add(t);
+                }
+            }
+            allApps = newApp;
+        }
+
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
 }

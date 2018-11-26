@@ -15,6 +15,7 @@ import org.joda.time.DateTime;
 
 public class InfoVeiwPage extends AppCompatActivity {
 
+    private final int changedItem = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class InfoVeiwPage extends AppCompatActivity {
 
         Intent data = getIntent();
         DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
+        int pos = data.getIntExtra("Position", 0);
 
         EditText cmpyName = findViewById(R.id.cmpyName);
         EditText cmpyDesc = findViewById(R.id.cmpyDesc);
@@ -43,9 +45,24 @@ public class InfoVeiwPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent editPage = new Intent(view.getContext(), edit_page.class);
                 editPage.putExtra("App",temp);
-                startActivity(editPage);
+                editPage.putExtra("Position", pos);
+                startActivityForResult(editPage, changedItem);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode == changedItem){
+            String cpname = data.getStringExtra("name");
+            String cpDesc = data.getStringExtra("CPDesc");
+            String title = data.getStringExtra("Title");
+            String JbDesc = data.getStringExtra("JbDesc");
+            String ci = data.getStringExtra("ci");
+
+//            database.push().setValue(temp);
+
+        }
     }
 
 }
