@@ -9,6 +9,8 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -34,10 +36,23 @@ public class HomeActivity extends AppCompatActivity
            startActivity(newAppObject);
         });
     }
-
     @Override
     public void onListFragmentInteraction(DummyContent.Application_Information_Object item) {
         System.out.println("Interact!");
+    }
+
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;// "true" means the menu should be visible
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_settings) {
+            Intent intent = new Intent(HomeActivity.this, Settings_Activity.class);
+            startActivity(intent);
+            return true;
+        }
+        return false;
     }
 
 
