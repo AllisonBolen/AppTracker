@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".new_application_object"
-    tools:showIn="@layout/activity_new_application_object">
+    tools:context=".edit_page"
+    tools:showIn="@layout/activity_edit_page">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -168,5 +168,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_jbDesc" />
     </android.support.constraint.ConstraintLayout>
-
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,8 @@
 package com.example.allisonbolen.myapplication;
 
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,15 +47,14 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
 //        holder.CompanyImage.setImageDrawable();
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
-            }
+        holder.cardView.setOnClickListener(v -> {
+            Intent infoPage = new Intent(v.getContext(), InfoVeiwPage.class);
+
+            //ADD DATA TO OUR INTENT
+            infoPage.putExtra("App",mValues.get(position));
+
+            //START DETAIL ACTIVITY
+            v.getContext().startActivity(infoPage);
         });
     }
 
@@ -66,6 +68,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
         public final TextView CmpyName, DateLastAccessed, JobDescp, JobTitle;
 //        public final ImageView CompanyImage;
         public Application_Information_Object mItem;
+        private CardView cardView;
 
         public ViewHolder(View view) {
             super(view);
@@ -75,7 +78,9 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
             JobDescp = (TextView) view.findViewById(R.id.jobDescription);
             JobTitle = (TextView) view.findViewById(R.id.JobTitle);
 //            CompanyImage = (ImageView) view.findViewById(R.id.imageView2);
+            cardView = (CardView) view.findViewById(R.id.card_view);
         }
+
 
         @Override
         public String toString() {
