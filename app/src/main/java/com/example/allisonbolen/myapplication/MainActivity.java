@@ -1,10 +1,12 @@
 package com.example.allisonbolen.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         Button login = findViewById(R.id.login_button);
         EditText username = findViewById(R.id.username_editText);
         EditText password = findViewById(R.id.password_editText);
+        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
         // ...
         // Initialize Firebase Auth
         authUser = FirebaseAuth.getInstance();
@@ -52,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentToSignUp);
         });
         login.setOnClickListener(v-> {
-
+            mgr.hideSoftInputFromWindow(username.getWindowToken(), 0);
+            mgr.hideSoftInputFromWindow(password.getWindowToken(), 0);
             authUser.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
