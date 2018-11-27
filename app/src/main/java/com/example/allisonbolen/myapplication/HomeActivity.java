@@ -41,7 +41,6 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         FloatingActionButton fab =  findViewById(R.id.fab);
        fab.setOnClickListener(v->{
            Intent newAppObject = new Intent(this, new_application_object.class);

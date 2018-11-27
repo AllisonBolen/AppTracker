@@ -15,6 +15,8 @@ import org.joda.time.DateTime;
 
 public class edit_page extends AppCompatActivity {
 
+    private int changedItem = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,6 @@ public class edit_page extends AppCompatActivity {
 
         Intent data = getIntent();
         DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
-        int pos = data.getIntExtra("Position", 0);
 
         EditText cmpyName = findViewById(R.id.cmpyName);
         EditText cmpyDesc = findViewById(R.id.cmpyDesc);
@@ -58,7 +59,7 @@ public class edit_page extends AppCompatActivity {
                 changed.putExtra("JbDesc", jbDes );
                 changed.putExtra("ci", ci );
 
-                setResult(HomeActivity.NewItem, changed);
+                setResult(changedItem, changed);
                // get object in list at position
 
                 finish();

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
 
@@ -15,7 +16,7 @@ import org.joda.time.DateTime;
 
 public class InfoVeiwPage extends AppCompatActivity {
 
-    private final int changedItem = 0;
+    private final int changedItem = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +28,11 @@ public class InfoVeiwPage extends AppCompatActivity {
         DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
         int pos = data.getIntExtra("Position", 0);
 
-        EditText cmpyName = findViewById(R.id.cmpyName);
-        EditText cmpyDesc = findViewById(R.id.cmpyDesc);
-        EditText jbTitle = findViewById(R.id.jbTitle);
-        EditText jbDesc = findViewById(R.id.jbDesc);
-        EditText contactInfo = findViewById(R.id.contactInfo);
+        TextView cmpyName = findViewById(R.id.text_cmpName);
+        TextView cmpyDesc = findViewById(R.id.cpDesc);
+        TextView jbTitle = findViewById(R.id.text_jbTitle);
+        TextView jbDesc = findViewById(R.id.jbDesc);
+        TextView contactInfo = findViewById(R.id.contactInfo);
 
         cmpyName.setText(temp.getCompanyName());
         cmpyDesc.setText(temp.getCompanyDesc());
@@ -45,7 +46,6 @@ public class InfoVeiwPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent editPage = new Intent(view.getContext(), edit_page.class);
                 editPage.putExtra("App",temp);
-                editPage.putExtra("Position", pos);
                 startActivityForResult(editPage, changedItem);
             }
         });
@@ -60,7 +60,17 @@ public class InfoVeiwPage extends AppCompatActivity {
             String JbDesc = data.getStringExtra("JbDesc");
             String ci = data.getStringExtra("ci");
 
-//            database.push().setValue(temp);
+            TextView cmpyName = findViewById(R.id.text_cmpName);
+            TextView cmpyDesc = findViewById(R.id.cpDesc);
+            TextView jbTitle = findViewById(R.id.text_jbTitle);
+            TextView jbDesc = findViewById(R.id.jbDesc);
+            TextView contactInfo = findViewById(R.id.contactInfo);
+
+            cmpyName.setText(cpname);
+            cmpyDesc.setText(cpDesc);
+            jbTitle.setText(title);
+            jbDesc.setText(JbDesc);
+            contactInfo.setText(ci);
 
         }
     }
