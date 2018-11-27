@@ -28,20 +28,10 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
         implements ApplicationFragment.OnListFragmentInteractionListener {
-    private DatabaseReference database;
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        super.onResume();
-        allApps.clear();
-        database= FirebaseDatabase.getInstance().getReference("Cards");
-        database.addChildEventListener (chEvListener);
 
-    }
-
-    public static List<DummyContent.Application_Information_Object> allApps;
     public static final int NewItem = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +40,6 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        allApps = new ArrayList<DummyContent.Application_Information_Object>();
 
 
         FloatingActionButton fab =  findViewById(R.id.fab);
@@ -64,7 +53,7 @@ public class HomeActivity extends AppCompatActivity
         if(resultCode == NewItem){
             DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
             DummyContent.addItem(temp);
-            database.push().setValue(temp);
+            MainActivity.database.push().setValue(temp);
         }
     }
 
@@ -89,41 +78,5 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
-    private ChildEventListener chEvListener = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            DummyContent.Application_Information_Object entry =
-                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-            entry._key = dataSnapshot.getKey();
-            allApps.add(entry);
-        }
 
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-        }
-
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-            DummyContent.Application_Information_Object entry =
-                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-            entry._key = dataSnapshot.getKey();
-            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
-            for (DummyContent.Application_Information_Object t : allApps) {
-                if (!t._key.equals(dataSnapshot.getKey())) {
-                    newApp.add(t);
-                }
-            }
-            allApps = newApp;
-        }
-
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-    };
 }

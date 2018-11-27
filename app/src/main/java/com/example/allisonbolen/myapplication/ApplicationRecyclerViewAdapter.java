@@ -60,7 +60,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
     @Override
     public int getItemCount() {
-        return HomeActivity.allApps.size();
+        return MainActivity.allApps.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

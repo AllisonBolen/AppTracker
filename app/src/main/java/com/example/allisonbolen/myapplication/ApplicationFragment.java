@@ -35,7 +35,7 @@ public class ApplicationFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ApplicationFragment() {
-        allApps = HomeActivity.allApps;
+        allApps = MainActivity.allApps;
 
     }
 
