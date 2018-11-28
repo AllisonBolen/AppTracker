@@ -18,18 +18,16 @@ public class Settings_Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         Button profile_button = findViewById(R.id.pro_info);
         profile_button.setOnClickListener(v -> {
             Intent profile_activity = new Intent(this, Profile_Activity.class);
             startActivity(profile_activity);
+        });
+
+        Button notification_button = findViewById(R.id.notif_button);
+        notification_button.setOnClickListener(v -> {
+            Intent notifications_activity = new Intent(this, NotificationsActivity.class);
+            startActivity(notifications_activity);
         });
 
     }
