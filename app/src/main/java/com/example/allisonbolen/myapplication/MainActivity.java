@@ -1,5 +1,6 @@
 package com.example.allisonbolen.myapplication;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -42,13 +43,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = authUser.getCurrentUser();
-//        if(currentUser != null ) {
-//            Intent home = new Intent(this, HomeActivity.class);
-//            startActivity(home);
-//        }
-//        // updateUI(currentUser);
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = authUser.getCurrentUser();
+        if(currentUser != null ) {
+            Intent home = new Intent(this, HomeActivity.class);
+            startActivity(home);
+        }
+        // updateUI(currentUser);
+        authUser.getCurrentUser().get;
 
     }
 
@@ -86,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
         // set up push notifications
         createNotificationChannel();
-
         // mode method
         signUp.setOnClickListener(v -> {
             Intent intentToSignUp = new Intent(this, Signup_activity.class);

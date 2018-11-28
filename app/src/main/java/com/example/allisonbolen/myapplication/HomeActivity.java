@@ -1,9 +1,11 @@
 package com.example.allisonbolen.myapplication;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -36,15 +38,8 @@ public class HomeActivity extends AppCompatActivity
            Intent newAppObject = new Intent(this, new_application_object.class);
            startActivityForResult(newAppObject, NewItem);
         });
+        Not();
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.google_logo)
-                .setContentTitle("HELLO WORLD")
-                .setContentText("WERE MOVING TO MARS")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-        // Create an explicit intent for an Activity in your app
-        notificationManager.notify(1, mBuilder.build());
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -75,6 +70,27 @@ public class HomeActivity extends AppCompatActivity
         return false;
     }
 
+    public void Not(){
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.google_logo)
+                .setContentTitle("HELLO WORLD")
+                .setContentText("WERE MOVING TO MARS")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        // the notification will do somehting with the next code
+        Intent resultIntent = new Intent(this, Profile_Activity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(Profile_Activity.class);
+
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+
+
+        // Create an explicit intent for an Activity in your app
+        notificationManager.notify(1, mBuilder.build());
+    }
 
 
 }
