@@ -3,6 +3,7 @@ package com.example.allisonbolen.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -10,6 +11,9 @@ import android.view.MenuItem;
 
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
+
+import static com.example.allisonbolen.myapplication.MainActivity.CHANNEL_ID;
+import static com.example.allisonbolen.myapplication.MainActivity.notificationManager;
 
 
 public class HomeActivity extends AppCompatActivity
@@ -32,6 +36,15 @@ public class HomeActivity extends AppCompatActivity
            Intent newAppObject = new Intent(this, new_application_object.class);
            startActivityForResult(newAppObject, NewItem);
         });
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.google_logo)
+                .setContentTitle("HELLO WORLD")
+                .setContentText("WERE MOVING TO MARS")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        // Create an explicit intent for an Activity in your app
+        notificationManager.notify(1, mBuilder.build());
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
