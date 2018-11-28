@@ -3,28 +3,14 @@ package com.example.allisonbolen.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
         implements ApplicationFragment.OnListFragmentInteractionListener {
@@ -69,7 +55,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_settings) {
-            Intent intent = new Intent(HomeActivity.this, Settings_Activity.class);
+            Intent intent = new Intent(this, Settings_Activity.class);
             startActivity(intent);
             return true;
         }
