@@ -54,7 +54,7 @@ public class InfoVeiwPage extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == changedItem){
-            String cpname = data.getStringExtra("name");
+            String cpname = data.getStringExtra("Name");
             String cpDesc = data.getStringExtra("CPDesc");
             String title = data.getStringExtra("Title");
             String JbDesc = data.getStringExtra("JbDesc");
