@@ -13,6 +13,7 @@ import com.example.allisonbolen.myapplication.dummy.DummyContent.*;
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 public class new_application_object extends AppCompatActivity {
 
@@ -28,6 +29,9 @@ public class new_application_object extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(v -> {
             DateTime now = new DateTime();
+
+
+
             EditText cmpyName = findViewById(R.id.cmpyName);
             EditText cmpyDesc = findViewById(R.id.cmpyDesc);
             EditText jbTitle = findViewById(R.id.jbTitle);
@@ -36,8 +40,8 @@ public class new_application_object extends AppCompatActivity {
 
             Application_Information_Object tempItem = new Application_Information_Object(
                     cmpyName.getText().toString(), cmpyDesc.getText().toString(),
-                    jbTitle.getText().toString(), now, jbDesc.getText().toString(),
-                    now, contactInfo.getText().toString(), 1);
+                    jbTitle.getText().toString(), now.toString(DateTimeFormat.fullDate()), jbDesc.getText().toString(),
+                    now.toString(DateTimeFormat.fullDate()), contactInfo.getText().toString(), 1);
 
             Intent intent = new Intent(new_application_object.this, MainActivity.class);
             intent.putExtra("App", tempItem );

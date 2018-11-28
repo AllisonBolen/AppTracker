@@ -41,7 +41,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.CmpyName.setText(mValues.get(position).getCompanyName());
-        holder.DateLastAccessed.setText(mValues.get(position).getAppDate().toString(DateTimeFormat.fullDate()));
+        holder.DateLastAccessed.setText(mValues.get(position).getAppDate());
         holder.JobTitle.setText(mValues.get(position).getJobTitle());
         holder.JobDescp.setText(mValues.get(position).getJobDesc());
 
@@ -52,7 +52,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
             //ADD DATA TO OUR INTENT
             infoPage.putExtra("App",mValues.get(position));
-
+            infoPage.putExtra("Position", position);
             //START DETAIL ACTIVITY
             v.getContext().startActivity(infoPage);
         });
@@ -60,7 +60,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return MainActivity.allApps.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -28,14 +28,14 @@ public class ApplicationFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    //List<Application_Information_Object> allApps;
+    List<Application_Information_Object> allApps;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public ApplicationFragment() {
-        //allApps = HomeActivity.allApps;
+        allApps = MainActivity.allApps;
 
     }
 
@@ -72,8 +72,8 @@ public class ApplicationFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            //recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(allApps, mListener));
-            recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(allApps, mListener));
+            //recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
