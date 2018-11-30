@@ -2,7 +2,7 @@ package com.example.allisonbolen.myapplication;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,13 +29,13 @@ public class ApplicationFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     List<Application_Information_Object> allApps;
-
+    ApplicationRecyclerViewAdapter adapter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public ApplicationFragment() {
-        allApps = MainActivity.allApps;
+        allApps = HomeActivity.allApps;
 
     }
 
@@ -72,7 +72,8 @@ public class ApplicationFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(allApps, mListener));
+            adapter = new ApplicationRecyclerViewAdapter(allApps, mListener);
+            recyclerView.setAdapter(adapter);
             //recyclerView.setAdapter(new ApplicationRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;

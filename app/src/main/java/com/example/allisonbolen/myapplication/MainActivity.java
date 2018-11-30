@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private FirebaseAuth authUser;
-    public static DatabaseReference database;
-    public static List<DummyContent.Application_Information_Object> allApps;
     public static String CHANNEL_ID = "TEST";
     public static NotificationManager notificationManager;
     @Override
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(home);
         }
         // updateUI(currentUser);
-        authUser.getCurrentUser().get;
-
     }
 
     private void createNotificationChannel() {
@@ -80,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         EditText username = findViewById(R.id.username_editText);
         EditText password = findViewById(R.id.password_editText);
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        allApps = new ArrayList<DummyContent.Application_Information_Object>();
 
         // ...
         // Initialize Firebase Auth
@@ -123,50 +118,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        allApps.clear();
-        database= FirebaseDatabase.getInstance().getReference("Cards");
-        database.addChildEventListener (chEvListener);
 
-    }
-
-    private ChildEventListener chEvListener = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            DummyContent.Application_Information_Object entry =
-                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-            entry._key = dataSnapshot.getKey();
-            allApps.add(entry);
-        }
-
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-        }
-
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-            DummyContent.Application_Information_Object entry =
-                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
-            entry._key = dataSnapshot.getKey();
-            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
-            for (DummyContent.Application_Information_Object t : allApps) {
-                if (!t._key.equals(dataSnapshot.getKey())) {
-                    newApp.add(t);
-                }
-            }
-            allApps = newApp;
-        }
-
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-    };
 }

@@ -3,7 +3,9 @@ package com.example.allisonbolen.myapplication;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,15 @@ import android.view.MenuItem;
 
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.allisonbolen.myapplication.MainActivity.CHANNEL_ID;
 import static com.example.allisonbolen.myapplication.MainActivity.notificationManager;
@@ -23,15 +34,22 @@ public class HomeActivity extends AppCompatActivity
 
 
     public static final int NewItem = 1;
-
+    public static List<DummyContent.Application_Information_Object> allApps;
+    public static DatabaseReference database;
+    ApplicationFragment frag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        allApps = new ArrayList<DummyContent.Application_Information_Object>();
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        frag = (ApplicationFragment) getFragmentManager().findFragmentById(R.id.fragment2);
+
+
 
         FloatingActionButton fab =  findViewById(R.id.fab);
        fab.setOnClickListener(v->{
@@ -42,11 +60,27 @@ public class HomeActivity extends AppCompatActivity
 
     }
     @Override
+    public void onResume(){
+        super.onResume();
+        allApps.clear();
+        database = FirebaseDatabase.getInstance().getReference("Cards");
+        database.addChildEventListener (chEvListener);
+        database.addValueEventListener(valListener);
+
+    }
+
+    public void onPause() {
+        super.onPause();
+        database.removeEventListener(chEvListener);
+        database.removeEventListener(valListener);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == NewItem){
             DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
             DummyContent.addItem(temp);
-            MainActivity.database.push().setValue(temp);
+            database.push().setValue(temp);
         }
     }
 
@@ -92,5 +126,54 @@ public class HomeActivity extends AppCompatActivity
         notificationManager.notify(1, mBuilder.build());
     }
 
+    private ValueEventListener valListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            frag.adapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+
+    private ChildEventListener chEvListener = new ChildEventListener() {
+        @Override
+        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            DummyContent.Application_Information_Object entry =
+                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+            entry._key = dataSnapshot.getKey();
+            allApps.add(entry);
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+        }
+
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+            DummyContent.Application_Information_Object entry =
+                    (DummyContent.Application_Information_Object) dataSnapshot.getValue(DummyContent.Application_Information_Object.class);
+            entry._key = dataSnapshot.getKey();
+            List<DummyContent.Application_Information_Object> newApp = new ArrayList<DummyContent.Application_Information_Object>();
+            for (DummyContent.Application_Information_Object t : allApps) {
+                if (!t._key.equals(dataSnapshot.getKey())) {
+                    newApp.add(t);
+                }
+            }
+            allApps = newApp;
+        }
+
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
 
 }
