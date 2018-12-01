@@ -21,8 +21,35 @@
             android:label="@string/title_activity_signup_activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".homeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".new_application_object"
+            android:label="@string/title_activity_new_application_object"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings_Activity"
+            android:label="@string/title_activity_settings_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile_Activity"
+            android:label="@string/title_activity_profile_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:label="@string/title_activity_edit_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:label="@string/title_activity_notifications"/>
+        <activity
+            android:name=".InfoVeiwPage"
+            android:label="@string/title_activity_info_veiw_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".edit_page"
+            android:label="@string/title_activity_edit_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
