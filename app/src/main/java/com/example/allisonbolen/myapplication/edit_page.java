@@ -7,16 +7,19 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
 
 import org.joda.time.DateTime;
 
+import static com.example.allisonbolen.myapplication.HomeActivity.database;
+
 public class edit_page extends AppCompatActivity {
 
     private int changedItem = 0;
-
+    private int pos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +35,22 @@ public class edit_page extends AppCompatActivity {
         EditText jbTitle = findViewById(R.id.jbTitle);
         EditText jbDesc = findViewById(R.id.jbDesc);
         EditText contactInfo = findViewById(R.id.contactInfo);
+        Button delete = findViewById(R.id.delete_button);
 
         cmpyName.setText(temp.getCompanyName());
         cmpyDesc.setText(temp.getCompanyDesc());
         jbTitle.setText(temp.getJobTitle());
         jbDesc.setText(temp.getJobDesc());
         contactInfo.setText(temp.getContactInfo());
+        pos = data.getIntExtra("Position", 0);
 
+        delete.setOnClickListener(v -> {
+            String key = HomeActivity.allApps.get(pos)._key;
+            database.child(key).setValue(null);
+
+            Intent home = new Intent(this, HomeActivity.class);
+            startActivity(home);
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

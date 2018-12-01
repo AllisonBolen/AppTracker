@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/company_name"
+            android:text="@string/company_description"
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:textStyle="bold"
