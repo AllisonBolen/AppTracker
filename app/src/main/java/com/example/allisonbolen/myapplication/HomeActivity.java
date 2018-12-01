@@ -15,6 +15,8 @@ import android.view.MenuItem;
 
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +33,7 @@ import static com.example.allisonbolen.myapplication.MainActivity.notificationMa
 
 public class HomeActivity extends AppCompatActivity
         implements ApplicationFragment.OnListFragmentInteractionListener {
-
+    private FirebaseAuth authUser;
     private final int changedItem = 0;
     private final int NewItem = 1;
     public static List<DummyContent.Application_Information_Object> allApps;
@@ -46,7 +48,7 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        authUser = FirebaseAuth.getInstance();
         frag = (ApplicationFragment) getFragmentManager().findFragmentById(R.id.fragment2);
 
 
@@ -63,7 +65,9 @@ public class HomeActivity extends AppCompatActivity
     public void onResume(){
         super.onResume();
         allApps.clear();
-        database = FirebaseDatabase.getInstance().getReference("Cards");
+        FirebaseUser currentUser = authUser.getCurrentUser();
+        String uid = currentUser.getUid();
+        database = FirebaseDatabase.getInstance().getReference("Users/"+uid+"/Cards");
         database.addChildEventListener (chEvListener);
         database.addValueEventListener(valListener);
 
