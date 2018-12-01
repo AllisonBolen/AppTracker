@@ -32,8 +32,8 @@ import static com.example.allisonbolen.myapplication.MainActivity.notificationMa
 public class HomeActivity extends AppCompatActivity
         implements ApplicationFragment.OnListFragmentInteractionListener {
 
-
-    public static final int NewItem = 1;
+    private final int changedItem = 0;
+    private final int NewItem = 1;
     public static List<DummyContent.Application_Information_Object> allApps;
     public static DatabaseReference database;
     ApplicationFragment frag;
@@ -81,6 +81,7 @@ public class HomeActivity extends AppCompatActivity
             DummyContent.Application_Information_Object temp = (DummyContent.Application_Information_Object) data.getSerializableExtra("App");
             DummyContent.addItem(temp);
             database.push().setValue(temp);
+
         }
     }
 
@@ -130,6 +131,7 @@ public class HomeActivity extends AppCompatActivity
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             frag.adapter.notifyDataSetChanged();
+
         }
 
         @Override

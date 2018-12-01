@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class edit_page extends AppCompatActivity {
 
-    private int changedItem = 1;
+    private int changedItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

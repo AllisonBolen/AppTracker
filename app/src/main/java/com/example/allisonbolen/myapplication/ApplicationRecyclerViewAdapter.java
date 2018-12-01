@@ -79,6 +79,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
             JobTitle = (TextView) view.findViewById(R.id.JobTitle);
 //            CompanyImage = (ImageView) view.findViewById(R.id.imageView2);
             cardView = (CardView) view.findViewById(R.id.card_view);
+
         }
 
 

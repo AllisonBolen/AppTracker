@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
 public class new_application_object extends AppCompatActivity {
-
+    private final int NewItem = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class new_application_object extends AppCompatActivity {
 
             Intent intent = new Intent(new_application_object.this, MainActivity.class);
             intent.putExtra("App", tempItem );
-            setResult(HomeActivity.NewItem, intent);
+            setResult(NewItem, intent);
             finish();
             // DummyContent.addItem(tempItem);
             // I feel like this is wrong and it should use an intent to pass data
