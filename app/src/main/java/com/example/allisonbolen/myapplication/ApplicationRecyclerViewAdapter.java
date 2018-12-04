@@ -48,7 +48,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
 //        holder.CompanyImage.setImageDrawable();
 
         holder.cardView.setOnClickListener(v -> {
-            Intent infoPage = new Intent(v.getContext(), InfoVeiwPage.class);
+            Intent infoPage = new Intent(v.getContext(), InfoViewPage.class);
 
             //ADD DATA TO OUR INTENT
             infoPage.putExtra("App",mValues.get(position));

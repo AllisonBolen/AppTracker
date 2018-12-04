@@ -78,7 +78,7 @@ public class edit_page extends AppCompatActivity {
                String jbDes = jbDesc.getText().toString();
                String ci = contactInfo.getText().toString();
 
-                Intent changed = new Intent(edit_page.this, InfoVeiwPage.class);
+                Intent changed = new Intent(edit_page.this, InfoViewPage.class);
                 changed.putExtra("Name", cpName );
                 changed.putExtra("CPDesc", cpDesc );
                 changed.putExtra("Title", jbT );
