@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Profile_Activity extends AppCompatActivity {
 
@@ -23,6 +24,13 @@ public class Profile_Activity extends AppCompatActivity {
             Intent editProfile = new Intent(this, EditProfileActivity.class);
             startActivity(editProfile);
         });
+
+        TextView email = findViewById(R.id.email_lab);
+        TextView password = findViewById(R.id.pass_lab);
+        TextView username = findViewById(R.id.usr_lab);
+        email.setText(currentUser.getEmail());
+        password.setText("******");
+        username.setText(currentUser.getDisplayName());
     }
 
 }
