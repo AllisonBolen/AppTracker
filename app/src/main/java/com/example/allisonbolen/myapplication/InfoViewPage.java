@@ -19,7 +19,7 @@ import org.joda.time.format.DateTimeFormat;
 
 import static com.example.allisonbolen.myapplication.HomeActivity.database;
 
-public class InfoVeiwPage extends AppCompatActivity {
+public class InfoViewPage extends AppCompatActivity {
     private final int changedItem = 0;
 
 

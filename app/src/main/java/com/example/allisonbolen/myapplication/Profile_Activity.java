@@ -10,7 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Profile_Activity extends AppCompatActivity {
+
+    private FirebaseAuth authUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,9 @@ public class Profile_Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        authUser = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = authUser.getCurrentUser();
+        
         Button edit_profile = findViewById(R.id.edit_pro_button);
         edit_profile.setOnClickListener(v->{
             Intent editProfile = new Intent(this, EditProfileActivity.class);
