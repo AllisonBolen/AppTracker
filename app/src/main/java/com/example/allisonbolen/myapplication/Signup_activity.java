@@ -47,8 +47,6 @@ public class Signup_activity extends AppCompatActivity {
                                     Log.d("GOOD", "createUserWithEmail:success");
                                     FirebaseUser user = authUser.getCurrentUser();
                                     //updateUI(user);
-                                    Snackbar.make(view, "All Signed Up!", Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
                                     Intent intentToLogin = new Intent(view.getContext(), HomeActivity.class);
                                     startActivity(intentToLogin);
                                 } else {

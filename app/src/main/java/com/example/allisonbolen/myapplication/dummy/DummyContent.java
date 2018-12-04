@@ -41,7 +41,14 @@ public class DummyContent implements java.io.Serializable{
 
     public static class Application_Information_Object implements java.io.Serializable{
 
-        private String companyName, companyDesc, jobTitle, jobDesc, contactInfo, lastClick, appDate;;
+        private String companyName;
+        private String companyDesc;
+        private String jobTitle;
+        private String jobDesc;
+        private String contactInfo;
+        private String lastClick;
+        private String appDate;
+        private String imageUrl;
         public String _key;
         //private DateTime lastClick, appDate;
 
@@ -55,6 +62,7 @@ public class DummyContent implements java.io.Serializable{
             this.lastClick = new DateTime().toString(DateTimeFormat.fullDate());
             this.appDate = new DateTime().toString(DateTimeFormat.fullDate());
             this.position = 0;
+            this.imageUrl = "";
         };
 
         public Application_Information_Object(String companyName, String companyDesc,
@@ -68,7 +76,10 @@ public class DummyContent implements java.io.Serializable{
             this.lastClick = lastClick;
             this.appDate = appDate;
             this.position = position;
+            this.imageUrl = "make request here to get string";
         }
+
+        public String getImageUrl() { return imageUrl; }
 
         public String getCompanyName() {
             return companyName;

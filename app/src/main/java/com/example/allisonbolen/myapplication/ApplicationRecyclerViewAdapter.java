@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
 import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
+import com.squareup.picasso.Picasso;
+
 import org.joda.time.format.DateTimeFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -44,8 +46,11 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
         holder.DateLastAccessed.setText(mValues.get(position).getAppDate());
         holder.JobTitle.setText(mValues.get(position).getJobTitle());
         holder.JobDescp.setText(mValues.get(position).getJobDesc());
-
-//        holder.CompanyImage.setImageDrawable();
+        Picasso.get()
+                .load("http://i.imgur.com/DvpvklR.png")
+                .placeholder(R.drawable.google_logo)
+                .fit()
+                .into(holder.CompanyImage);
 
         holder.cardView.setOnClickListener(v -> {
             Intent infoPage = new Intent(v.getContext(), InfoVeiwPage.class);
@@ -66,7 +71,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView CmpyName, DateLastAccessed, JobDescp, JobTitle;
-//        public final ImageView CompanyImage;
+        public final ImageView CompanyImage;
         public Application_Information_Object mItem;
         private CardView cardView;
 
@@ -77,7 +82,7 @@ public class ApplicationRecyclerViewAdapter extends RecyclerView.Adapter<Applica
             DateLastAccessed = (TextView) view.findViewById(R.id.DateLastOpened);
             JobDescp = (TextView) view.findViewById(R.id.jobDescription);
             JobTitle = (TextView) view.findViewById(R.id.JobTitle);
-//            CompanyImage = (ImageView) view.findViewById(R.id.imageView2);
+            CompanyImage = (ImageView) view.findViewById(R.id.imageView2);
             cardView = (CardView) view.findViewById(R.id.card_view);
 
         }
