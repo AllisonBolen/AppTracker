@@ -33,4 +33,5 @@
     <string name="title_activity_notifications">NotificationsActivity</string>
     <string name="title_activity_info_veiw_page">InfoVeiwPage</string>
     <string name="title_activity_edit_page">edit_page</string>
+    <string name="title_activity_quote_page">QuotePage</string>
 </resources>

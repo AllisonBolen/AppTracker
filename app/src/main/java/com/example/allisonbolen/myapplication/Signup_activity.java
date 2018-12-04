@@ -49,8 +49,8 @@ public class Signup_activity extends AppCompatActivity {
                                     //updateUI(user);
                                     Snackbar.make(view, "All Signed Up!", Snackbar.LENGTH_LONG)
                                             .setAction("Action", null).show();
-                                    Intent intentToLogin = new Intent(view.getContext(), HomeActivity.class);
-                                    startActivity(intentToLogin);
+                                    Intent intentQuote = new Intent(view.getContext(), QuotePage.class);
+                                    startActivity(intentQuote);
                                 } else {
                                     // If sign in fails, display a message to the user.
 

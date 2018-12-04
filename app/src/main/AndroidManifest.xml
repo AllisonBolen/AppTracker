@@ -42,7 +42,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NotificationsActivity"
-            android:label="@string/title_activity_notifications"/>
+            android:label="@string/title_activity_notifications" />
         <activity
             android:name=".InfoVeiwPage"
             android:label="@string/title_activity_info_veiw_page"
@@ -50,7 +50,15 @@
         <activity
             android:name=".edit_page"
             android:label="@string/title_activity_edit_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".QuotePage"
+            android:label="@string/title_activity_quote_page"
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name="webService.QuoteService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
