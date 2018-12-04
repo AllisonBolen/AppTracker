@@ -5,9 +5,10 @@ allprojects {
 }
 
 buildscript {
-    repositories {
-        mavenCentral()
-    }
+
+   repositories {
+     mavenCentral()
+   }
 
 }
 
@@ -16,14 +17,16 @@ apply plugin: 'android-library'
 android {
     sourceSets {
         androidTest {
-            setRoot('src/test')
+
+          setRoot('src/test')
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 17 
     buildToolsVersion '28.0.2'
+
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 28
+        minSdkVersion 8
+        targetSdkVersion 16 
         versionCode 1
         versionName "1.0"
     }
@@ -34,9 +37,7 @@ android {
         }
     }
     lintOptions {
-        abortOnError false
-    }
-    productFlavors {
+          abortOnError false
     }
 }
 
@@ -45,9 +46,9 @@ configurations {
 
 
 dependencies {
-    implementation 'com.android.support:support-annotations:28.+'
-    implementation 'com.android.support:support-v4:28.+'
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-annotations:20.0.0'
+    implementation 'com.android.support:support-v4:21.0.+'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation files('libs/volley.jar')
-    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation('junit:junit:4.12')
 }
