@@ -1,12 +1,17 @@
 package com.example.allisonbolen.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,6 +44,19 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
+        ConstraintLayout layout = findViewById(R.id.edit_profile_layout);
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent ev)
+            {
+                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                return false;
+            }
+        });
+
+
+
         Button linkedIn_button = findViewById(R.id.connect_button);
 
         linkedIn_button.setOnClickListener( v-> {
@@ -48,12 +66,16 @@ public class EditProfileActivity extends AppCompatActivity {
                 public void onAuthSuccess() {
                     // Authentication was successful.  You can now do
                     // other calls with the SDK.
-                    Toast.makeText(this, "It worked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfileActivity.this, "It worked",
+                            Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onAuthError(LIAuthError error) {
                     // Handle authentication errors
+                    Toast.makeText(EditProfileActivity.this, "Did not work",
+                            Toast.LENGTH_SHORT).show();
+                    Log.e("Tag", error.toString());
                 }
             }, true);
         });
