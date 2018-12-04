@@ -5,14 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.concurrent.TimeUnit;
 
 import webService.QuoteService;
 
@@ -51,15 +55,16 @@ public class QuotePage extends AppCompatActivity {
         quoteBox = (TextView) findViewById(R.id.quoteBox);
         authorBox = (TextView) findViewById(R.id.author);
         QuoteService.startGetQuote(this, "p1");
+        Intent intentToLogin = new Intent(this, HomeActivity.class);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentToLogin = new Intent(view.getContext(), HomeActivity.class);
-                startActivity(intentToLogin);
-            }
-        });
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                startActivity(intentToLogin);            }
+        }, 5000);   //5 seconds
+
+
+
     }
 
     public void onBackPressed() {
@@ -81,6 +86,7 @@ public class QuotePage extends AppCompatActivity {
                 quoteBox.setText(summary);
                 authorBox.setText(author);
             }
+
         }
     };
 
