@@ -9,9 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.allisonbolen.myapplication.dummy.DummyContent;
-import com.google.android.gms.common.api.Scope;
+import com.linkedin.platform.LISessionManager;
+import com.linkedin.platform.errors.LIAuthError;
+import com.linkedin.platform.listeners.AuthListener;
+import com.linkedin.platform.utils.Scope;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -39,6 +43,19 @@ public class EditProfileActivity extends AppCompatActivity {
 
         linkedIn_button.setOnClickListener( v-> {
 
+            LISessionManager.getInstance(getApplicationContext()).init(this, buildScope(), new AuthListener() {
+                @Override
+                public void onAuthSuccess() {
+                    // Authentication was successful.  You can now do
+                    // other calls with the SDK.
+                    Toast.makeText(this, "It worked", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onAuthError(LIAuthError error) {
+                    // Handle authentication errors
+                }
+            }, true);
         });
     }
 
