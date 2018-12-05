@@ -113,13 +113,13 @@ public class HomeActivity extends AppCompatActivity
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.google_logo)
-                .setContentTitle("HELLO WORLD")
-                .setContentText("WERE MOVING TO MARS")
+                .setContentTitle("Reminder")
+                .setContentText("Have you updated your applications lately?")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        // the notification will do somehting with the next code
-        Intent resultIntent = new Intent(this, Profile_Activity.class);
+        // the notification will do something with the next code
+        Intent resultIntent = new Intent(this, MainActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(Profile_Activity.class);
+        stackBuilder.addParentStack(MainActivity.class);
 
         // Adds the Intent that starts the Activity to the top of the stack
         stackBuilder.addNextIntent(resultIntent);
