@@ -2,23 +2,19 @@ package com.example.allisonbolen.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,8 +35,6 @@ import com.linkedin.platform.utils.Scope;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -151,10 +145,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 }, true);
             });
         }
+//
+//        public void onBackPressed(){
+//            finish();
+//        }
 
         private void linkedInInfo(){
-            String url = "https://api.linkedin.com/v1/companies/1234/updates/key=ABCDE-123456/update-comments-as-company/";
-
+            String url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,picture-urls::(original),industry,positions,email-address)";
 
             APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
             apiHelper.getRequest(this, url, new ApiListener() {
@@ -162,13 +159,19 @@ public class EditProfileActivity extends AppCompatActivity {
                 public void onApiSuccess(ApiResponse apiResponse) {
                     // Success!
                     try {
+
                         JSONObject jsonObject = apiResponse.getResponseDataAsJson();
                         String ln_firstName = jsonObject.getString("firstName");
                         String ln_lastName = jsonObject.getString("lastName");
-                        String ln_email = jsonObject.getString("email");
+                        String ln_email = jsonObject.getString("emailAddress");
 
+                        String temp_username = ln_firstName + " " +ln_lastName;
+
+                        Log.d("temp_username", temp_username);
+                        Log.d("ln_email", ln_email);
                         email.setText(ln_email);
-                        username.setText(ln_firstName + ln_lastName);
+                        username.setText(temp_username);
+
                     }catch (JSONException e){
                         e.printStackTrace();
                     }
