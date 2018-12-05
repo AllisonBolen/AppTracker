@@ -138,6 +138,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 @Override
                 public void onApiSuccess(ApiResponse apiResponse) {
                     // Success!
+                    Log.d("Succeeded here", "we made it in the on api success");
                     try {
 
                         JSONObject jsonObject = apiResponse.getResponseDataAsJson();
@@ -161,6 +162,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 @Override
                 public void onApiError(LIApiError liApiError) {
                     // Error making POST request!
+                    Log.e("FIALED POST", liApiError.toString());
                 }
             });
         }
