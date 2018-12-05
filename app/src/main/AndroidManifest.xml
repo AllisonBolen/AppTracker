@@ -46,7 +46,7 @@
             android:label="@string/title_activity_notifications"/>
         <activity
             android:name=".InfoViewPage"
-            android:label="@string/title_activity_info_veiw_page"
+            android:label="@string/title_activity_info_view_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".edit_page"
