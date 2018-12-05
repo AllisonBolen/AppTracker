@@ -129,10 +129,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 }, true);
             });
         }
-//
-//        public void onBackPressed(){
-//            finish();
-//        }
 
         private void linkedInInfo(){
             String url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,picture-urls::(original),industry,positions,email-address)";
