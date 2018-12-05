@@ -96,7 +96,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/google_logo" />
+            app:srcCompat="@drawable/ic_collections_bookmark_black_24dp" />
 
         <TextView
             android:id="@+id/forgot_password"
