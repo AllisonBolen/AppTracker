@@ -112,7 +112,7 @@ public class HomeActivity extends AppCompatActivity
     public void Not(){
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.google_logo)
+                .setSmallIcon(R.drawable.ic_collections_bookmark_black_24dp)
                 .setContentTitle("Reminder")
                 .setContentText("Have you updated your applications lately?")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
