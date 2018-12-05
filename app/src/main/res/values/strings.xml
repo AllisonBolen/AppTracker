@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tracker</string>
+    <string name="app_name">Application Tracker</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="forgot_pass">Forgot My Password</string>
