@@ -35,7 +35,6 @@ import com.linkedin.platform.utils.Scope;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -72,15 +71,9 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View view) {
-                    final AtomicBoolean email_done = new AtomicBoolean(false);
-                    final AtomicBoolean user_done = new AtomicBoolean(false);
+
                     if (!email.getText().toString().equals("")) {
-                        currentUser.updateEmail(email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                email_done.set(true);
-                            }
-                        });
+                        currentUser.updateEmail(email.getText().toString());
                         intent.putExtra("email", email.getText().toString());
                     }
                     if (!password.getText().toString().equals("")) {
@@ -91,16 +84,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (!username.getText().toString().equals("")) {
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(username.getText().toString()).build();
-                        currentUser.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d("Username Updated.", "User profile updated.");
-                                    user_done.set(true);
-                                }
-                            }
-                        });
-//                    while(!email_done.get() && !user_done.get());
+                        currentUser.updateProfile(profileUpdates);
                         intent.putExtra("username", username.getText().toString());
                     }
                     Log.d("profileChange", "" + profileChange);

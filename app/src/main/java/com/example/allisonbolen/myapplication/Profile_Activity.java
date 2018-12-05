@@ -48,7 +48,7 @@ public class Profile_Activity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         Log.d("profileChange", "Before if");
-        if(resultCode == PROFILECHANGE){
+        if(resultCode == PROFILECHANGE && data !=null){
             Log.d("profileChange", "After if");
             authUser = FirebaseAuth.getInstance();
             FirebaseUser currentUser = authUser.getCurrentUser();
