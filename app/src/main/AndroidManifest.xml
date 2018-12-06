@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.allisonbolen.myapplication">
+    package="com.tracker.allisonbolen.myapplication">
 
     <application
 
@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.tracker.allisonbolen.myapplication.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,38 +18,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Signup_activity"
+            android:name="com.tracker.allisonbolen.myapplication.Signup_activity"
             android:label="@string/title_activity_signup_activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.tracker.allisonbolen.myapplication.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".new_application_object"
+            android:name="com.tracker.allisonbolen.myapplication.new_application_object"
             android:label="@string/title_activity_new_application_object"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Settings_Activity"
+            android:name="com.tracker.allisonbolen.myapplication.Settings_Activity"
             android:label="@string/title_activity_settings_"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Profile_Activity"
+            android:name="com.tracker.allisonbolen.myapplication.Profile_Activity"
             android:label="@string/title_activity_profile_"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name="com.tracker.allisonbolen.myapplication.EditProfileActivity"
             android:label="@string/title_activity_edit_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NotificationsActivity"
+            android:name="com.tracker.allisonbolen.myapplication.NotificationsActivity"
             android:label="@string/title_activity_notifications"/>
         <activity
-            android:name=".InfoViewPage"
+            android:name="com.tracker.allisonbolen.myapplication.InfoViewPage"
             android:label="@string/title_activity_info_view_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".edit_page"
+            android:name="com.tracker.allisonbolen.myapplication.edit_page"
             android:label="@string/title_activity_edit_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <uses-library
