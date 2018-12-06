@@ -24,6 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,18 +61,45 @@ public class HomeActivity extends AppCompatActivity
            Intent newAppObject = new Intent(this, new_application_object.class);
            startActivityForResult(newAppObject, NewItem);
         });
-        Not();
+
+
 
     }
+    public void checkDates() {
+        // check item for an update notification
+        allApps.size();
+        for(int i = 0; i < allApps.size(); i++){
+            DummyContent.Application_Information_Object application = allApps.get(i);
+            DateTime now = DateTime.now();
+            String thing = now.toString(DateTimeFormat.shortDate());
+            String timeOfApp = application.getAppDate();
+
+            int nowMonth = Integer.parseInt(thing.substring(0, thing.indexOf("/")));
+            int nowDay = Integer.parseInt(thing.substring(thing.indexOf("/")+1,thing.indexOf("/",thing.indexOf("/")+1)));
+            int nowYear = Integer.parseInt(thing.substring(thing.indexOf("/",thing.indexOf("/")+1)+1));
+
+            int month = Integer.parseInt(timeOfApp.substring(0, timeOfApp.indexOf("/")));
+            int day = Integer.parseInt(timeOfApp.substring(timeOfApp.indexOf("/")+1,timeOfApp.indexOf("/",timeOfApp.indexOf("/")+1)));
+            int year = Integer.parseInt(timeOfApp.substring(timeOfApp.indexOf("/",timeOfApp.indexOf("/")+1)+1));
+
+            if(nowDay > day || nowMonth > month || nowYear > year ){
+                Not();
+            }
+        }
+    }
+
     @Override
     public void onResume(){
         super.onResume();
+        checkDates();
         allApps.clear();
         FirebaseUser currentUser = authUser.getCurrentUser();
         String uid = currentUser.getUid();
         database = FirebaseDatabase.getInstance().getReference("Users/"+uid+"/Cards");
         database.addChildEventListener (chEvListener);
         database.addValueEventListener(valListener);
+
+
 
     }
 

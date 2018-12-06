@@ -40,8 +40,8 @@ public class new_application_object extends AppCompatActivity {
 
             Application_Information_Object tempItem = new Application_Information_Object(
                     cmpyName.getText().toString(), cmpyDesc.getText().toString(),
-                    jbTitle.getText().toString(), now.toString(DateTimeFormat.fullDate()), jbDesc.getText().toString(),
-                    now.toString(DateTimeFormat.fullDate()), contactInfo.getText().toString(), 1);
+                    jbTitle.getText().toString(), now.toString(DateTimeFormat.shortDate()), jbDesc.getText().toString(),
+                    now.toString(DateTimeFormat.shortDate()), contactInfo.getText().toString(), 1);
 
             Intent intent = new Intent(new_application_object.this, MainActivity.class);
             intent.putExtra("App", tempItem );

@@ -52,8 +52,8 @@ public class DummyContent implements java.io.Serializable{
             this.jobTitle = "";
             this.jobDesc = "";
             this.contactInfo = "";
-            this.lastClick = new DateTime().toString(DateTimeFormat.fullDate());
-            this.appDate = new DateTime().toString(DateTimeFormat.fullDate());
+            this.lastClick = new DateTime().toString(DateTimeFormat.shortDate());
+            this.appDate = new DateTime().toString(DateTimeFormat.shortDate());
             this.position = 0;
         };
 
