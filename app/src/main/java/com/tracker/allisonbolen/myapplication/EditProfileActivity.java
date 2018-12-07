@@ -113,15 +113,15 @@ public class EditProfileActivity extends AppCompatActivity {
                     public void onAuthSuccess() {
                         // Authentication was successful.  You can now do
                         // other calls with the SDK.
-                        Toast.makeText(EditProfileActivity.this, "It worked",
-                                Toast.LENGTH_SHORT).show();
                         linkedInInfo();
+                        Toast.makeText(EditProfileActivity.this, "You are connected to LinkedIn",
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onAuthError(LIAuthError error) {
                         // Handle authentication errors
-                        Toast.makeText(EditProfileActivity.this, "Did not work",
+                        Toast.makeText(EditProfileActivity.this, "LinkedIn failed to connect",
                                 Toast.LENGTH_SHORT).show();
                         Log.e("Tag", error.toString());
                     }
