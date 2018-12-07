@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +15,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;

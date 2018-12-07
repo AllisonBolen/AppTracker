@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 
-import com.example.allisonbolen.myapplication.dummy.DummyContent.*;
+import com.tracker.allisonbolen.myapplication.dummy.DummyContent.*;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -37,8 +37,8 @@ public class new_application_object extends AppCompatActivity {
 
             Application_Information_Object tempItem = new Application_Information_Object(
                     cmpyName.getText().toString(), cmpyDesc.getText().toString(),
-                    jbTitle.getText().toString(), now.toString(DateTimeFormat.fullDate()), jbDesc.getText().toString(),
-                    now.toString(DateTimeFormat.fullDate()), contactInfo.getText().toString(), 1);
+                    jbTitle.getText().toString(), now.toString(DateTimeFormat.shortDate()), jbDesc.getText().toString(),
+                    now.toString(DateTimeFormat.shortDate()), contactInfo.getText().toString(), 1);
 
             Intent intent = new Intent(new_application_object.this, MainActivity.class);
             intent.putExtra("App", tempItem );

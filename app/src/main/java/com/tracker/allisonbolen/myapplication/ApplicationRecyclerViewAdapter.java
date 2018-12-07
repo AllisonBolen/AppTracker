@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.example.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
-import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
+import com.tracker.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
+import com.tracker.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
 import java.util.List;
 
 /**

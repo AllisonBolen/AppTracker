@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.tracker.allisonbolen.myapplication.dummy.DummyContent;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
-import static com.example.allisonbolen.myapplication.HomeActivity.database;
+import static com.tracker.allisonbolen.myapplication.HomeActivity.database;
 
 public class InfoViewPage extends AppCompatActivity {
     private final int changedItem = 0;

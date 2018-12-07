@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,10 +13,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.tracker.allisonbolen.myapplication.dummy.DummyContent;
 
-
-import static com.example.allisonbolen.myapplication.HomeActivity.database;
+import static com.tracker.allisonbolen.myapplication.HomeActivity.database;
 
 public class edit_page extends AppCompatActivity {
 

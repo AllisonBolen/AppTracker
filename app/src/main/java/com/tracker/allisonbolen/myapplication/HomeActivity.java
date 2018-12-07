@@ -1,4 +1,4 @@
-package com.example.allisonbolen.myapplication;
+package com.tracker.allisonbolen.myapplication;
 
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.example.allisonbolen.myapplication.dummy.DummyContent;
+import com.tracker.allisonbolen.myapplication.dummy.DummyContent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -23,11 +23,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.allisonbolen.myapplication.MainActivity.CHANNEL_ID;
-import static com.example.allisonbolen.myapplication.MainActivity.notificationManager;
+import static com.tracker.allisonbolen.myapplication.MainActivity.CHANNEL_ID;
+import static com.tracker.allisonbolen.myapplication.MainActivity.notificationManager;
 
 
 public class HomeActivity extends AppCompatActivity
@@ -57,18 +60,49 @@ public class HomeActivity extends AppCompatActivity
            Intent newAppObject = new Intent(this, new_application_object.class);
            startActivityForResult(newAppObject, NewItem);
         });
-        Not();
+
+
 
     }
+    public void checkDates() {
+        // check item for an update notification
+        allApps.size();
+        boolean notify = false;
+        for(int i = 0; i < allApps.size(); i++){
+            DummyContent.Application_Information_Object application = allApps.get(i);
+            DateTime now = DateTime.now();
+            String thing = now.toString(DateTimeFormat.shortDate());
+            String timeOfApp = application.getAppDate();
+
+            int nowMonth = Integer.parseInt(thing.substring(0, thing.indexOf("/")));
+            int nowDay = Integer.parseInt(thing.substring(thing.indexOf("/")+1,thing.indexOf("/",thing.indexOf("/")+1)));
+            int nowYear = Integer.parseInt(thing.substring(thing.indexOf("/",thing.indexOf("/")+1)+1));
+
+            int month = Integer.parseInt(timeOfApp.substring(0, timeOfApp.indexOf("/")));
+            int day = Integer.parseInt(timeOfApp.substring(timeOfApp.indexOf("/")+1,timeOfApp.indexOf("/",timeOfApp.indexOf("/")+1)));
+            int year = Integer.parseInt(timeOfApp.substring(timeOfApp.indexOf("/",timeOfApp.indexOf("/")+1)+1));
+
+            if(nowDay > day || nowMonth > month || nowYear > year ){
+               notify = true;
+            }
+        }
+        if(notify){
+            Not();
+        }
+    }
+
     @Override
     public void onResume(){
         super.onResume();
+        checkDates();
         allApps.clear();
         FirebaseUser currentUser = authUser.getCurrentUser();
         String uid = currentUser.getUid();
         database = FirebaseDatabase.getInstance().getReference("Users/"+uid+"/Cards");
         database.addChildEventListener (chEvListener);
         database.addValueEventListener(valListener);
+
+
 
     }
 
