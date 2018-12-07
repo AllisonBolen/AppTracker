@@ -31,6 +31,8 @@ public class Profile_Activity extends AppCompatActivity {
         Button edit_profile = findViewById(R.id.edit_pro_button);
         edit_profile.setOnClickListener(v->{
             Intent editProfile = new Intent(this, EditProfileActivity.class);
+            editProfile.putExtra("email", email.getText().toString());
+            editProfile.putExtra("username", username.getText().toString());
             startActivityForResult(editProfile, PROFILECHANGE);
         });
 

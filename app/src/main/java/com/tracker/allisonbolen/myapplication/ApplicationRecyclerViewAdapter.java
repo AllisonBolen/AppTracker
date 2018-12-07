@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.tracker.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
 import com.tracker.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
-
 import java.util.List;
 
 /**
