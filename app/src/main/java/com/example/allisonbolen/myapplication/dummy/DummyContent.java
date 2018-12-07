@@ -1,12 +1,10 @@
 package com.example.allisonbolen.myapplication.dummy;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
-import java.util.Map;
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.

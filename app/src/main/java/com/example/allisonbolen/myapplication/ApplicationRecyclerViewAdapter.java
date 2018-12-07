@@ -1,18 +1,14 @@
 package com.example.allisonbolen.myapplication;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.allisonbolen.myapplication.ApplicationFragment.OnListFragmentInteractionListener;
 import com.example.allisonbolen.myapplication.dummy.DummyContent.Application_Information_Object;
-import org.joda.time.format.DateTimeFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
